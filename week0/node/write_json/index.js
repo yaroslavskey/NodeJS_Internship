@@ -4,6 +4,7 @@
  */
  const fs = require('fs');
  const axios = require('axios');
+const { Console } = require('console');
 
   axios
     .get('https://jsonplaceholder.typicode.com/users')
@@ -12,6 +13,7 @@
                 if(err) console.log('Error')
             });
         });
+       // .cath(err => Console.log('Error: ', err));
 
 
 

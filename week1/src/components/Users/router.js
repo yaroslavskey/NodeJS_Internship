@@ -7,8 +7,8 @@ router.get('/:id', UserComponent.find);
 
 router.delete('/:id', UserComponent.del);
 
-router.post('/:obj', UserComponent.create);
+router.post('/', UserComponent.create);
 
-router.put('/:obj', UserComponent.update);
+router.put('/', UserComponent.update);
 
 module.exports = router;

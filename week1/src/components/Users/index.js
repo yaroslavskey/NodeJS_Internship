@@ -2,13 +2,15 @@ const UserService = require('./service');
 
 async function find(req, res) {
     try {
-        if(Number.isNaN(req.params.id) || typeof req.params.id != 'undefined') {
+        if(Number.isNaN(req.params.id) || typeof req.params.id == 'undefined') {
+            throw 'Error';
+        };
+        
         const demo = await UserService.find(req.params.id);
         
         return res.status(200).json({
             data: demo,
         });
-    }
     } catch (error) {
         return res.status(500).json({
             error: error.message,
@@ -19,6 +21,10 @@ async function find(req, res) {
 
 async function del(req, res) {
     try {
+        if(Number.isNaN(req.params.id) || typeof req.params.id == 'undefined') {
+            throw 'Error';
+        };
+
         const demo = await UserService.del(req.params.id);
 
         return res.status(200).json({
@@ -34,7 +40,11 @@ async function del(req, res) {
 
 async function create(req, res) {
     try {
-        const demo = await UserService.create(JSON.parse(req.params.obj));
+        if(Number.isNaN(req.params.id) || typeof req.params.id == 'undefined') {
+            throw 'Error';
+        };
+
+        const demo = await UserService.create(req.body);
 
         return res.status(201).json({
             data: demo,
@@ -49,7 +59,11 @@ async function create(req, res) {
 
 async function update(req, res) {
     try {
-        const demo = await UserService.update(JSON.parse(req.params.obj));
+        if(Number.isNaN(req.params.id) || typeof req.params.id == 'undefined') {
+            throw 'Error';
+        };
+
+        const demo = await UserService.update(req.body);
 
         return res.status(201).json({
             data: demo,
