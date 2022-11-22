@@ -6,7 +6,7 @@ const myArray = [1, 10, 3, 6, 'ArrayElement'];
  */
 
 console.log(`3: ${myArray[3]}`);
- console.log(`6: ${myArray[6]}`);
+console.log(`6: ${myArray[6]}`);
 
 /**
  *  2. Log type of each element 
@@ -20,6 +20,7 @@ myArray.forEach((el) => console.log(typeof(el)));
  */
 
 const isNumber = myArray.every(el => typeof(el) ==='number');
+
 console.log({
     isNumber,
 });

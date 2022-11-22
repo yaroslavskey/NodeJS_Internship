@@ -13,6 +13,7 @@ const status = arg[2];
 
 let url;
 let file;
+
 if(status == 'production') {
     url = process.env.PROD_URL;
     file = process.env.PROD_FILE;
@@ -23,11 +24,11 @@ if(status == 'dev') {
     file = process.env.DEV_FILE;
 }
 
- axios
-   .get(url)
-       .then(res => {
-           fs.writeFile(file, JSON.stringify(res.data), (err) => {
-               if(err) console.log('Error')
-           });
-       });
+axios
+    .get(url)
+    .then(res => {
+        fs.writeFile(file, JSON.stringify(res.data), (err) => {
+            if(err) console.log('Error')
+        });
+    });
        

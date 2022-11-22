@@ -55,7 +55,7 @@ const copiedInvoiceThree = {...invoice};
 console.log({
     copiedInvoice,
     copiedInvoiceTwo,
-   copiedInvoiceThree,
+    copiedInvoiceThree,
 });
 
 /**
@@ -74,6 +74,7 @@ console.log({
  * 7. Loop through object and log key-values
  */
 
- for (let key of Object.keys(invoice)) {
-    console.log(key + " -> " + invoice[key])
+// eslint-disable-next-line no-const-assign
+for (keys in invoice) {
+    console.log(keys + " -> " + invoice[keys]);
 }

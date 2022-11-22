@@ -3,8 +3,8 @@
  * Should return 'I'm firstName lastName'
  */
 
- function sayWho(firstName, lastName) {
-    return `I\'\m ` +  firstName + ` ` + lastName;
+function sayWho(firstName, lastName) {
+    return `I'm  ${firstName} ${lastName}`;
 }
 
 console.log(sayWho('Andrey', 'Yaroslavskey'));
@@ -15,8 +15,7 @@ console.log(sayWho('Andrey', 'Yaroslavskey'));
  */
 
 function countSum(...args) {
-    const sum = args.reduce((acc, el) => acc += el);
-    return sum;
+    return args.reduce((acc, el) => acc += el);
 }
 
 console.log(countSum(4, 5, 23));
@@ -28,8 +27,7 @@ console.log(countSum(1, 2));
  */
 
 function countLetters(string, letter) {
-    const result = string.toLowerCase().split('').filter(el => el === letter).length;
-    return result;
+    return string.toLowerCase().split('').filter(el => el === letter).length;
 }
 
 console.log(countLetters('Node developer', 'd'));
@@ -39,8 +37,7 @@ console.log(countLetters('Node developer', 'd'));
  */
 
 function getRandom(start, end) {
-    const randNumber = Math.random() * (end-start) + start;
-    return Math.floor(randNumber);
+    return Math.floor(Math.random() * (end-start) + start);
 }
 
 console.log(getRandom(0, 10));
