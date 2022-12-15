@@ -4,13 +4,14 @@ module.exports = {
         node: true
     },
 
-    extends: 'eslint:recommended',
+    extends: "airbnb-base/legacy",
     overrides: [],
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
     rules: {
+        "linebreak-style": 0
         "prettier/prettier": [
             "error",
             {
