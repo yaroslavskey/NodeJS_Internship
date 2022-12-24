@@ -10,7 +10,7 @@ module.exports = () => {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
-        .then(() => console.log('Connect MongoDB, collection users'))
+        .then(() => console.log('Connect MongoDB, node_user'))
         .catch((error) => console.log(error));
 
     mongoose.connection.on('connected', () => {

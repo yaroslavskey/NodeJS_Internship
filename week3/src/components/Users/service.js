@@ -1,4 +1,4 @@
-const UsersDB = require('./db');
+const UsersDB = require('../userShema');
 
 function find(obj) {
     UsersDB.findOne({email: obj.email}, function (err, result) {
@@ -16,12 +16,19 @@ function del(obj) {
     })
 }
 
-function create(obj) {
-    UsersDB.create(obj, function (err, result) {
+async function create(obj) {
+    /*
+     const result = await UsersDB.create(obj);
+     console.log(result)
+     return result;
+   */
+   UsersDB.create(obj, function (err, result) {
         console.log(err, result);
 
         return result; 
+       
     });
+  
 }
 
 function update(obj) {

@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 
-require('dotenv').config();
+const jwt_decode = require('jwt-decode');
 
+require('dotenv').config();
 
 function verifyToken(req, res, next) {
     const bearerHeader = req.headers["authorization"];
@@ -9,9 +10,10 @@ function verifyToken(req, res, next) {
     if (typeof bearerHeader !== 'undefined') {
         const bearerToken = bearerHeader.split(' ')[1];
 
-        req.token = bearerToken;
+        const decoded = jwt_decode(bearerToken);
+        req.userId = decoded.userId;
 
-        jwt.verify(req.token, process.env.SECRET, (err) => {
+        jwt.verify(bearerToken, process.env.SECRET, (err) => {
             if (err) {
                 return res.sendStatus(403);
             }

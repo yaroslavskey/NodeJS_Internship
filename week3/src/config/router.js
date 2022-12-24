@@ -6,6 +6,7 @@ const http = require('http');
 // ROUTERS
 const DemoRouter = require('../components/Demo/router');
 const UsersRouter = require('../components/Users/router');
+const TaskRouter = require('../components/Task/router');
 
 module.exports = {
     init(app) {
@@ -13,6 +14,7 @@ module.exports = {
 
         app.use('/v1/demo', DemoRouter);
         app.use('/v1/users', require('morgan')('dev'), UsersRouter);
+        app.use('/v1/task', require('morgan')('dev'), TaskRouter);
 
         app.use((req, res) => {
             res.status(404).send(http.STATUS_CODES[404]);

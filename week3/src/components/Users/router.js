@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const UserComponent = require('./index');
-const VerifyService = require('./virifyToken');
+const VerifyService = require('../virifyToken');
 const router = Router();
 
 router.get('/', VerifyService.verifyToken, UserComponent.find);
