@@ -2,7 +2,7 @@ const UserService = require('./service');
 const jwt = require('jsonwebtoken');
 const validation = require('../validations');
 
-const UsersDB = require('../userShema');
+const UsersDB = require('./userShema');
 const bcrypt = require('bcrypt');
 
 require('dotenv').config();

@@ -1,42 +1,19 @@
-const UsersDB = require('../userShema');
+const UsersDB = require('./userShema');
 
 function find(obj) {
-    UsersDB.findOne({email: obj.email}, function (err, result) {
-        console.log(err, result);
-
-        return result; 
-    })
+    return UsersDB.findOne({email: obj.email});
 }
 
 function del(obj) {
-    UsersDB.deleteOne({ email: obj.email }, function (err, result) {
-        console.log(err, result);
-
-        return result; 
-    })
+    return UsersDB.deleteOne({ email: obj.email });
 }
 
-async function create(obj) {
-    /*
-     const result = await UsersDB.create(obj);
-     console.log(result)
-     return result;
-   */
-   UsersDB.create(obj, function (err, result) {
-        console.log(err, result);
-
-        return result; 
-       
-    });
-  
+function create(obj) {
+  return UsersDB.create(obj);
 }
 
 function update(obj) {
-    UsersDB.updateOne({ email: obj.email }, { name: obj.name, username: obj.username }, function (err, result) {
-        console.log(err, result);
-
-        return result;
-    });
+    return UsersDB.updateOne({ email: obj.email }, { name: obj.name, username: obj.username });
 }
 
 module.exports = {

@@ -5,6 +5,8 @@ const jwt_decode = require('jwt-decode');
 require('dotenv').config();
 
 function verifyToken(req, res, next) {
+    console.log(req.headers)
+    
     const bearerHeader = req.headers["authorization"];
 
     if (typeof bearerHeader !== 'undefined') {

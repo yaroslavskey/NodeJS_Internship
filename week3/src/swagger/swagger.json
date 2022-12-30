@@ -1,0 +1,212 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Onix Internship",
+    "description": "REST API swagger documentation",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "Task",
+      "description": "Task description"
+    }
+  ],
+  "paths": {
+    "/task": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "Creat new task",
+        "parameters": [
+          {
+            "name": "Task",
+            "description": "add new task",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/task/all": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "find all task user",
+        "parameters": [
+          {
+            "name": "Task",
+            "description": "add new task",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/task/qqq": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "find all task",
+        "parameters": [
+          {
+            "name": "Task",
+            "description": "add new task",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/task/{id}": {
+      "patch": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "update task fild for id",
+        "parameters": [
+          {
+            "name": "id",
+            "description": "id task",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Task",
+            "description": "add new task",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Task": {
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Upload"
+        },
+        "description": {
+          "type": "string",
+          "example": "Upload images to S3."
+        },
+        "estimatedTime": {
+          "type": "integer",
+          "example": 15
+        },
+        "createdBy": {
+          "type": "string",
+          "example": "Manager"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "estimatedTime",
+        "createdBy"
+      ]
+    },
+    "ErrorResponse": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "Enter you bearer token (Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNlcmVAYXByaWwuYml6IiwidXNlcklkIjoiNjNhNDY1NzdmMzdjYzhiYzg4NzEwNWQwIiwiaWF0IjoxNjcyMzQ5NTI4LCJleHAiOjE2NzIzNTMxMjh9.ZhW7YiJxT-ZKMfEeAYaxZM37O6Occ62vCXk2joL331M)"
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ]
+}

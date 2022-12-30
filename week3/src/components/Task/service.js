@@ -1,5 +1,4 @@
-const TasksDB = require('../taskShema');
-const UsersDB = require('../userShema');
+const TasksDB = require('./taskShema');
 const mongoose = require('mongoose');
 
 
@@ -11,7 +10,7 @@ async function find(userId, page) {
 }
 
 function findAll(data) {
-    const result = TasksDB.aggregate(
+    return result = TasksDB.aggregate(
         [
             {
                 "$facet" : {
@@ -20,10 +19,20 @@ function findAll(data) {
                             "$match" : {
                                 "assignee" : mongoose.Types.ObjectId(data)
                             }
+                        },
+                        {
+                            "$sort" : {
+                                "estimatedTime" : -1.0
+                            }
                         }
                     ]
                 }
             }, 
+            {
+                "$sort" : {
+                    "estimatedTime" : -1.0
+                }
+            },
             {
                 "$lookup" : {
                     "from" : "users",
@@ -69,7 +78,6 @@ function findAll(data) {
             "allowDiskUse" : false
         }
     );
-    return result;
 }
 
 function create(obj) {

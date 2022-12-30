@@ -9,6 +9,8 @@ middleware.init(app);
 
 router.init(app);
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
+
+require('../config/mongoConnection')();
 
 module.exports = app;

@@ -40,7 +40,6 @@ async function findAll(req, res) {
                 message: 'Invalid request'
             });
         }
-
         const demo = await TaskService.findAll(req.userId);
 
         return res.status(200).json({
@@ -71,7 +70,7 @@ async function create(req, res) {
 
         const demo = await TaskService.create(req.body);
 
-        return res.status(201).json({
+        return res.status(200).json({
             data: demo,
         });
     } catch (error) {
@@ -93,12 +92,12 @@ async function update(req, res) {
         }
 
         const demo = await TaskService.update({
-            userId: req.userId,
+            //userId: req.userId,
             taskId: req.params.id,
             time: req.body.estimatedTime
         });
 
-        return res.status(201).json({
+        return res.status(200).json({
             data: demo,
         });
     } catch (error) {
