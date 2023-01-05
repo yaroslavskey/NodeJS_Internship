@@ -5,4 +5,7 @@
 /week0/node/run_script_v1
 /week1
 /week1_3
-/node_modules
+node_modules
+dist
+
+
